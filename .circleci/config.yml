@@ -1,0 +1,15 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: gcc:6
+    steps:
+      - checkout
+      - run: gcc -o main main.c
+      - run: ./main
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
